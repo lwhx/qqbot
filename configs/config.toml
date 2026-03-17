@@ -1,0 +1,46 @@
+[app]
+log_level = "info"
+
+[qqbot]
+
+# QQ 机器人 AppID（必填）
+app_id = "123123123"
+
+# QQ 机器人密钥（必填）
+client_secret = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+token_url = "https://bots.qq.com/app/getAppAccessToken"
+api_base = "https://api.sgroup.qq.com"
+request_timeout = "10s"
+
+# 是否使用 markdown 发送（false=普通文本，true=markdown）
+markdown = false
+
+[server]
+listen_addr = ":8080"
+
+# 接口鉴权 token 必须要修改
+api_token = "8b0969e4cc9e12356"
+read_timeout = "10s"
+write_timeout = "15s"
+shutdown_timeout = "10s"
+max_body_bytes = 1048576
+
+[dispatch]
+queue_size = 2048
+workers = 8
+retry_max = 3
+retry_backoff_ms = 200
+enqueue_timeout = "3s"
+
+[runtime]
+status_ttl_seconds = 86400
+idempotency_ttl_seconds = 3600
+cleanup_interval_seconds = 60
+
+[collector]
+reconnect_delay = "3s"
+
+[targets]
+file_path = "data/targets.json"
+max_records = 1000
+flush_interval = "2s"
