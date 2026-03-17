@@ -8,15 +8,11 @@
 - 已开通 QQ 机器人并拿到 `app_id`、`client_secret`
 - 开通地址：https://q.qq.com/qqbot/openclaw/login.html
 
-编辑 `configs/config.toml`：
-
+最小配置示例：
 ```toml
 [qqbot]
 app_id = "你的AppID"
 client_secret = "你的ClientSecret"
-token_url = "https://bots.qq.com/app/getAppAccessToken"
-api_base = "https://api.sgroup.qq.com"
-request_timeout = "10s"
 markdown = false
 
 [server]
