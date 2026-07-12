@@ -15,14 +15,14 @@ jobs:
       contents: write
     steps:
       - name: 检出代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: 设置 Go 环境
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version-file: go.mod
+          go-version-file: 'go.mod'
 
       - name: 计算版本号
         id: meta
@@ -62,7 +62,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: 发布 Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.meta.outputs.version }}
           name: qqbot ${{ steps.meta.outputs.version }}
